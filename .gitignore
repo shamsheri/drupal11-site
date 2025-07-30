@@ -1,0 +1,24 @@
+# Ignore user-uploaded files
+sites/*/files/
+
+# Ignore sensitive settings files
+sites/*/settings*.php
+sites/*/services.yml
+
+# Ignore cache and temporary directories
+sites/simpletest/
+sites/*/private/
+
+# Ignore backup, logs, and temp files
+*.log
+*.sql
+*.sqlite
+*.gz
+*.zip
+*.tar
+*.tar.gz
+*.bak
+*.swp
+
+# Ignore Composer dependencies
+vendor/
