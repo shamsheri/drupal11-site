@@ -1,5 +1,5 @@
 # Ignore user-uploaded files
-sites/*/files/
+#sites/*/files/
 
 # Ignore sensitive settings files
 sites/*/settings*.php

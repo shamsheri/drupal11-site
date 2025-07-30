@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  drupal:
+    image: drupal:11
+    ports:
+      - "8000:80"  # Drupal will run at http://localhost:8000
+    depends_on:
+      - mysql
+    environment:
+      - DRUPAL_DB_HOST=mysql
+      - DRUPAL_DB_NAME=drupal
+      - DRUPAL_DB_USER=drupal
+      - DRUPAL_DB_PASSWORD=drupal
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
+  mysql-data:
