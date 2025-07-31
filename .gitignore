@@ -11,7 +11,7 @@ sites/*/private/
 
 # Ignore backup, logs, and temp files
 *.log
-*.sql
+#*.sql
 *.sqlite
 *.gz
 *.zip
