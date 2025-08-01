@@ -4,7 +4,7 @@ services:
   drupal:
     image: drupal:11
     ports:
-      - "8000:80"  # Drupal will run at http://localhost:8000
+      - "8000:80"
     depends_on:
       - mysql
     environment:
@@ -19,14 +19,14 @@ services:
       - drupal-themes:/var/www/html/themes
 
   mysql:
-    image: mysql:8.0
+    image: drupal-db-with-data  # ✅ yahi tumhara custom image hai
     environment:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
       MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
 volumes:
   drupal-modules:
@@ -34,3 +34,4 @@ volumes:
   drupal-sites:
   drupal-themes:
   mysql-data:
+
